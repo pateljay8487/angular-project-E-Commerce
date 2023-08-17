@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { RegistrationService } from '../services/registration.service'
 import { Router } from '@angular/router'
 import { AuthService } from '../services/auth.service'
+import './log-in.component.scss';
+
 
 @Component({
   selector: 'app-log-in',
