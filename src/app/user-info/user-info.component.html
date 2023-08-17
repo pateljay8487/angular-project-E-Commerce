@@ -1,0 +1,141 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="col-lg-8" *ngIf="!isEditMode" style="margin-left:50px; margin-top: 90px;">
+  <form class="mx-1 mx-md-4" [formGroup]="editUserForm" (ngSubmit)="onSubmit()">
+
+    <div class="card">
+      <div class="card-body">
+        <div class="row mb-3">
+          <div class="col-sm-3">
+            <h6 class="mb-0">First Name</h6>
+          </div>
+          <div class="col-sm-9 text-secondary">
+            <input type="text" formControlName="firstName" class="form-control"
+              [ngClass]="{'is-invalid': (editUserForm.get('firstName')?.touched) && !editUserForm.get('firstName')?.valid}"
+              required>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-sm-3">
+            <h6 class="mb-0">Last Name</h6>
+          </div>
+          <div class="col-sm-9 text-secondary">
+            <input type="text" formControlName="lastName" class="form-control"
+              [ngClass]="{'is-invalid': (editUserForm.get('lastName')?.touched) && !editUserForm.get('lastName')?.valid}"
+              required>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-sm-3">
+            <h6 class="mb-0">Email</h6>
+          </div>
+          <div class="col-sm-9 text-secondary">
+            <input type="email" formControlName="email" class="form-control"
+              [ngClass]="{'is-invalid': (editUserForm.get('email')?.touched) && !editUserForm.get('email')?.valid}"
+              required>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-sm-3">
+            <h6 class="mb-0">UserName</h6>
+          </div>
+          <div class="col-sm-9 text-secondary">
+            <input type="text" formControlName="userName" class="form-control"
+              [ngClass]="{'is-invalid': (editUserForm.get('userName')?.touched) && !editUserForm.get('userName')?.valid}"
+              required>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-sm-3">
+            <h6 class="mb-0">Gender</h6>
+          </div>
+          <div class="col-sm-9 text-secondary">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" formControlName="gender" value="male"
+                [checked]="loginUserDetail.gender === 'male'">
+              <label class="form-check-label">Male</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" formControlName="gender" value="female"
+                [checked]="loginUserDetail.gender === 'female'">
+              <label class="form-check-label">Female</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" formControlName="gender" value="other"
+                [checked]="loginUserDetail.gender === 'other'">
+              <label class="form-check-label">Other</label>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-sm-3">
+            <h6 class="mb-0">Phone Number</h6>
+          </div>
+          <div class="col-sm-9 text-secondary">
+            <input type="text" formControlName="phoneNumber" class="form-control"
+              [ngClass]="{'is-invalid': (editUserForm.get('phoneNumber')?.touched) && !editUserForm.get('phoneNumber')?.valid}"
+              required>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!editUserForm.valid">Save</button>
+        <button type="button" class="btn btn-danger mx-4" (click)="cancel()">cancel</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="col-lg-8" *ngIf="isEditMode" style="margin-left:50px; margin-top: 90px;">
+  <div class="card">
+    <div class="card-body">
+      <div class="row mb-3">
+        <div class="col-sm-3">
+          <h6 class="mb-0">First Name</h6>
+        </div>
+        <div class="col-sm-9 text-secondary">
+          {{loginUserDetail.firstName}}
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-sm-3">
+          <h6 class="mb-0">Last Name</h6>
+        </div>
+        <div class="col-sm-9 text-secondary">
+          {{loginUserDetail.lastName}}
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-sm-3">
+          <h6 class="mb-0">Email</h6>
+        </div>
+        <div class="col-sm-9 text-secondary">
+          {{loginUserDetail.email}}
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-sm-3">
+          <h6 class="mb-0">UserName</h6>
+        </div>
+        <div class="col-sm-9 text-secondary">
+          {{loginUserDetail.userName}}
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-sm-3">
+          <h6 class="mb-0">Gender</h6>
+        </div>
+        <div class="col-sm-9 text-secondary">
+          {{loginUserDetail.gender}}
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-sm-3">
+          <h6 class="mb-0">Phone Number</h6>
+        </div>
+        <div class="col-sm-9 text-secondary">
+          {{loginUserDetail.phoneNumber}}
+        </div>
+      </div>
+      <button type="button" class="btn btn-secondary" (click)="editUser()">Edit</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<app-nav-bar></app-nav-bar>
+<div class="row" *ngIf="favourtieProductList">
+  <div class="col-4" style="margin-top:70px;" *ngFor="let product of favourtieProductList">
+    <div class="container">
+      <section class="mx-auto my-5" style="max-width: 23rem;">
+
+        <div class="card">
+          <div class="bg-image hover-overlay ripple">
+            <img src="{{product.image}}" style="max-width: auto; max-height: 150px;" class="img-fluid" />
+          </div>
+          <div class="card-body">
+            <h5 class="card-title font-weight-bold">{{product.title}}</h5>
+            <ul class="list-unstyled list-inline mb-0">
+              <li class="list-inline-item">
+                <p class="text-muted">{{product.rate}}</p>
+              </li>
+              <li class="list-inline-item me-0">
+                <i class="fas fa-star text-warning fa-xs"> </i>
+              </li>
+            </ul>
+            <p class="mb-2"><i class="fas fa-dollar text-warning fa-xs"></i> {{product.price}}</p>
+            <p class="card-text">
+              {{product.description}}
+            </p>
+            <hr class="my-3" />
+            <button type="button" class="btn btn-outline-danger btn-sm" (click)="removeFavoutite(product._id)">Remove
+              Favourite</button>
+          </div>
+        </div>
+
+      </section>
+    </div>
+  </div>
+
+  <p *ngIf="!favourtieProductList" style="margin-top:70px;">Add favorite products to view them on this page.</p>

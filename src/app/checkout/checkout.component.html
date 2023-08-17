@@ -1,0 +1,77 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="row" style="margin-top:90px;">
+  <div class="col-8">
+    <div class="row" *ngIf="productList">
+      <div class="col-6" *ngFor="let product of productList">
+        <section class="articles">
+          <article>
+            <div class="article-wrapper">
+              <figure>
+                <img src="{{product.image}}" alt="" />
+              </figure>
+              <div class="article-body">
+                <h2>{{product.title}}</h2>
+                <p>
+                  {{product.description}}
+                </p>
+                <p class="mb-2"><i class="fas fa-dollar text-warning fa-xs"></i> {{product.price}}</p>
+              </div>
+            </div>
+          </article>
+          <article>
+          </article>
+        </section>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="col-4">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Order Summary</h5>
+        <div class="row">
+          <div class="col-4">
+            <p class="card-text">Subtotal</p>
+          </div>
+          <div class="col-4"></div>
+          <div class="col-4"><i class="fas fa-dollar text-warning fa-xs"></i>
+            {{totalPrice}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4">
+            <p class="card-text">Tax (18%)</p>
+          </div>
+          <div class="col-4"></div>
+          <div class="col-4"><i class="fas fa-dollar text-warning fa-xs"></i>
+            {{roundTaxTotal}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4">
+            <p class="card-text">Shipping</p>
+          </div>
+          <div class="col-4"></div>
+          <div class="col-4"><i class="fas fa-dollar text-warning fa-xs"></i>
+            {{shippingCharge}}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-4">
+            <p class="card-text"><b>Total</b></p>
+          </div>
+          <div class="col-4"></div>
+          <div class="col-4"><i class="fas fa-dollar text-warning fa-xs"></i> 
+            {{grandTotal}}
+          </div>
+        </div>
+
+        <button class="btn btn-primary mt-4" disabled>Checkout</button>
+      </div>
+    </div>
+
+  </div>
+</div>

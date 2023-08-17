@@ -1,0 +1,27 @@
+<app-nav-bar></app-nav-bar>
+
+<section class="light" style="margin-top:70px;" *ngIf="productsList">
+  <div class="container py-2" *ngFor="let product of productsList">
+
+    <article class="postcard light blue">
+      <a class="postcard__img_link">
+        <img class="postcard__img" src="{{product.image }}" alt="Image Title" />
+      </a>
+      <div class="postcard__text t-dark">
+        <h1 class="postcard__title blue">{{ product.title }}</h1>
+        <div class="postcard__bar"></div>
+        <div class="postcard__preview-txt">{{product.description}}</div>
+        <ul class="postcard__tagbox">
+          <li class="tag__item"><i class=""></i>{{product.category}}</li>
+          <li class="tag__item"><i class="fas fa-dollar p-2"></i> {{product.price}}</li>
+
+          <li class="tag__item"><i class="fas fa-star p-2"></i> {{product.rating.rate}}</li>
+          <li class="tag__item" (click)="addFavoutite(product._id)"><i class="fas fa-heart p-2"></i>Add to favoutite
+          </li>
+        </ul>
+      </div>
+    </article>
+
+
+  </div>
+</section>

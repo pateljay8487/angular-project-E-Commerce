@@ -1,0 +1,44 @@
+<section class="vh-100">
+  <div class="container py-5 h-100">
+    <div class="row d-flex align-items-center justify-content-center h-100">
+      <div class="col-md-8 col-lg-7 col-xl-6">
+        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg" class="img-fluid"
+          alt="login image">
+      </div>
+      <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+
+        <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign in</p>
+
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <!-- Email input -->
+          <div class="form-outline mb-4">
+            <input type="email" formControlName="email" class="form-control"
+              [ngClass]="{'is-invalid': (loginForm.get('email')?.touched) && !loginForm.get('email')?.valid}"
+              required />
+            <label class="form-label">Email address</label>
+          </div>
+
+          <!-- Password input -->
+          <div class="form-outline mb-4">
+            <input type="password" class="form-control" formControlName="password"
+              [ngClass]="{'is-invalid': (loginForm.get('password')?.touched) && !loginForm.get('password')?.valid}"
+              required />
+            <label class="form-label">Password</label>
+          </div>
+
+          <!-- Submit button -->
+          <button type="submit" class="btn btn-primary btn-md btn-block" [disabled]="!loginForm.valid">Sign in</button>
+
+          <div class="divider d-flex align-items-center my-4">
+            <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
+          </div>
+
+          <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account?
+            <a routerLink="/register" class="link-danger">Register</a>
+          </p>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
